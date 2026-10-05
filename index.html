@@ -1,89 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Two Numbers</title>
-
-    <style>
-        body {
-            font-family: Arial;
-            padding: 40px;
-        }
-
-        input {
-            margin: 5px;
-            padding: 8px;
-        }
-
-        button {
-            padding: 8px 15px;
-        }
-    </style>
+<title>Add Two Numbers</title>
+<style>
+body { font-family: Arial; padding: 40px; }
+input { margin: 5px; }
+</style>
 </head>
-
 <body>
+<h1>Add Two Numbers</h1>
+<form id="addForm">
+<input type="number" id="num1" placeholder="Number 1" required>
+<input type="number" id="num2" placeholder="Number 2" required>
+<button type="submit">Add</button>
+</form>
+<p id="result"></p>
+<script>
+const form = document.getElementById('addForm');
+const result = document.getElementById('result');
+form.addEventListener('submit', async (e) => {
+e.preventDefault();
+const a = document.getElementById('num1').value;
+const b = document.getElementById('num2').value;
+const apiUrl = '<!DOCTYPE html>
+<html>
+<head>
+<title>Add Two Numbers</title>
+<style>
+body { font-family: Arial; padding: 40px; }
+input { margin: 5px; }
+</style>
+</head>
+<body>
+<h1>Add Two Numbers</h1>
+<form id="addForm">
+<input type="number" id="num1" placeholder="Number 1" required>
+<input type="number" id="num2" placeholder="Number 2" required>
+<button type="submit">Add</button>
+</form>
+<p id="result"></p>
+<script>
+const form = document.getElementById('addForm');
+const result = document.getElementById('result');
+form.addEventListener('submit', async (e) => {
+e.preventDefault();
+const a = document.getElementById('num1').value;
+const b = document.getElementById('num2').value;
+const apiUrl = 'https://7gnx612j4f.execute-api.ap-south-1a.amazonaws.com/prod/add'; //
+try {
+const response = await fetch(apiUrl, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ a: parseInt(a), b: parseInt(b) })
+});
 
-    <h1>Add Two Numbers</h1>
+const data = await response.json();
+result.textContent = data.sum !== undefined ? 'Sum: ' + data.sum : 'Error: ' +
+data.error;
+} catch (err) {
+result.textContent = 'Error: ' + err.message;
+}
+});
+</script>
+</body>
+</html>'; //
+replace with your API URL
+try {
+const response = await fetch(apiUrl, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ a: parseInt(a), b: parseInt(b) })
+});
 
-    <form id="addForm">
-
-        <input
-            type="number"
-            id="num1"
-            placeholder="Number 1"
-            required
-        >
-
-        <input
-            type="number"
-            id="num2"
-            placeholder="Number 2"
-            required
-        >
-
-        <button type="submit">Add</button>
-
-    </form>
-
-    <p id="result"></p>
-
-    <script>
-        const form = document.getElementById("addForm");
-        const result = document.getElementById("result");
-
-        form.addEventListener("submit", async (e) => {
-
-            e.preventDefault();
-
-            const a = document.getElementById("num1").value;
-            const b = document.getElementById("num2").value;
-            7gnx612j4f
-            const apiUrl =
-                "https://7gnx612j4f.execute-api.ap-south-1a.amazonaws.com/prod/add";
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        a: parseInt(a),
-                        b: parseInt(b)
-                    })
-                });
-
-                const data = await response.json();
-
-                result.textContent =
-                    data.sum !== undefined
-                        ? "Sum: " + data.sum
-                        : "Error: " + data.error;
-
-            } catch (err) {
-                result.textContent = "Error: " + err.message;
-            }
-        });
-    </script>
-
+const data = await response.json();
+result.textContent = data.sum !== undefined ? 'Sum: ' + data.sum : 'Error: ' +
+data.error;
+} catch (err) {
+result.textContent = 'Error: ' + err.message;
+}
+});
+</script>
 </body>
 </html>
