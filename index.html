@@ -46,25 +46,7 @@ form.addEventListener('submit', async (e) => {
 e.preventDefault();
 const a = document.getElementById('num1').value;
 const b = document.getElementById('num2').value;
-const apiUrl = 'https://7gnx612j4f.execute-api.ap-south-1a.amazonaws.com/prod/add'; //
-try {
-const response = await fetch(apiUrl, {
-method: 'POST',
-headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ a: parseInt(a), b: parseInt(b) })
-});
-
-const data = await response.json();
-result.textContent = data.sum !== undefined ? 'Sum: ' + data.sum : 'Error: ' +
-data.error;
-} catch (err) {
-result.textContent = 'Error: ' + err.message;
-}
-});
-</script>
-</body>
-</html>'; //
-replace with your API URL
+const apiUrl = 'https://7gnx612j4f.execute-api.ap-south-1a.amazonaws.com/prod/add'; 
 try {
 const response = await fetch(apiUrl, {
 method: 'POST',
